@@ -22,7 +22,7 @@ server.use(express.json())
 
 //-------------------ENDPOINTS-------------------
 
-server.use("/register", userRouter)
+server.use("/user", userRouter)
 
 //-------------------ERROR HANDLERS-------------------
 
