@@ -5,7 +5,7 @@ import UserModel from "./model.js"
 
 const userRouter = express.Router()
 
-userRouter.post("/", async (req, res, next) => {
+userRouter.post("/register", async (req, res, next) => {
   try {
     const newUser = new UserModel(req.body)
     const { _id } = await newUser.save()
