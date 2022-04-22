@@ -3,6 +3,13 @@ import mongoose from "mongoose"
 import cors from "cors"
 import listEndpoints from "express-list-endpoints"
 import userRouter from "./services/user/index.js"
+import {
+  badRequestHandler,
+  forbiddenHandler,
+  genericErrorHandler,
+  notFoundHandler,
+  unauthorizedHandler,
+} from "./error.js"
 
 const server = express()
 
@@ -18,6 +25,12 @@ server.use(express.json())
 server.use("/register", userRouter)
 
 //-------------------ERROR HANDLERS-------------------
+
+server.use(badRequestHandler)
+server.use(notFoundHandler)
+server.use(unauthorizedHandler)
+server.use(forbiddenHandler)
+server.use(genericErrorHandler)
 
 //-------------------CONNECTION-------------------
 
